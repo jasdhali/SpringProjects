@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Use transaction tag -->    
+<!-- data Source -->
+<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <constructor-arg index="0" value="jdbc:oracle:thin:@localhost:1521:ORCL"/>
+    <constructor-arg index="1" value="scott"/>
+    <constructor-arg index="2" value="tiger"/>
+    <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+</bean>
+<!-- dreate session factory -->
+<!-- hibernate template -->
+<!--  dao config -->
+
+</beans>

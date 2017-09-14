@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- entitymanagerFactory -->
+	<bean id="entityManagerFactory" 
+	    	class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+	    <property name="persistenceUnitName" value="course"/>
+	    
+	</bean>
+	<!-- dao config -->
+	<bean id="courseDaoJpaDI" class="com.apress.springrecipes.course.jpa.depinjection.JpaCourseDaoDI">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>    
+	    
+	</bean>
+</beans>

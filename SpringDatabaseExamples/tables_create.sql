@@ -1,0 +1,15 @@
+C:\software\db-derby-10.4.2.0-bin\bin>ij.bat
+ij version 10.4
+ij> connect 'jdbc:derby://localhost:1527/bookshop;create=true';
+ CREATE TABLE BOOK(ISBN VARCHAR(50) NOT NULL, BOOK_NAME VARCHAR(100) NOT NULL,PRICE INT,PRIMARY KEY (ISBN));
+0 rows inserted/updated/deleted
+CREATE TABLE BOOK_STOCK(ISBN VARCHAR(50) NOT NULL,STOCK INT NOT NULL,PRIMARY KEY(ISBN),CHECK(STOCK>=0));
+0 rows inserted/updated/deleted
+ij> CREATE TABLE ACCOUNT(USERNAME VARCHAR(50) NOT NULL,BALANCE INT NOT NULL,PRIMARY KEY(USERNAME),CHECK(BALANCE>=0));
+0 rows inserted/updated/deleted
+ij>
+
+INSERT INTO BOOK ('0001','The First Book',30);
+INSERT INTO BOOK_STOCK VALUES('0001', 10);
+INSERT INTO ACCOUNT VALUES('user1', 20);
+
