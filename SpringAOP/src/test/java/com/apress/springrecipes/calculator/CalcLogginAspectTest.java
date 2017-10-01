@@ -20,12 +20,12 @@ public class CalcLogginAspectTest {
     @Mock
     private JoinPoint joinPoint;
 
-    private CalculatorLogginAspect calculatorLogginAspect = new CalculatorLogginAspect();
+    //private CalculatorLogginAspect calculatorLogginAspect = new CalculatorLogginAspect();
 	
     @Test
-    public void testPositiveSmallNumber() throws Throwable {
+    public void testAddingTwoPositiveDoubles() throws Throwable {
 		Signature mockSignature = null;
-	
+		CalculatorLogginAspect calculatorLogginAspectMock = PowerMockito.mock( CalculatorLogginAspect.class );
 		Object[] args = new Object[]{Double.class,Double.class};
 		args[0] = 10d;
 		args[1] = 20d;
@@ -38,10 +38,11 @@ public class CalcLogginAspectTest {
 		PowerMockito.when( joinPoint.getSignature()).thenReturn(mockSignature);
 		PowerMockito.when( joinPoint.getArgs()).thenReturn(args);
 
-    	calculatorLogginAspect.logBefore(joinPoint);
+    	calculatorLogginAspectMock.logBefore(joinPoint);
         // 'proceed()' is called exactly once
         //verify(joinPoint, times(1));
-        verify(joinPoint);
+        verify(calculatorLogginAspectMock,times(1)).logBefore(joinPoint);
+        //verify(calculatorLogginAspectMock,times(1)).logAfter(joinPoint);
         // 'proceed(Object[])' is never called
         //verify(proceedingJoinPoint, never());
     }

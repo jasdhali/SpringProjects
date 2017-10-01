@@ -22,10 +22,11 @@ public class CalculatorLogginAspectTest {
     @Rule
     public MockitoRule mockitoRule = MockitoJUnit.rule();
     //private Log log = LogFactory.getLog(this.getClass());
-	CalculatorLogginAspect calculatorLogginAspect =	new CalculatorLogginAspect();
 
 	@Test
 	public void logBeforeSuccess(){
+		CalculatorLogginAspect calculatorLogginAspect =	PowerMockito.mock( CalculatorLogginAspect.class );
+
 		JoinPoint mockJP = null;
 		Signature mockSignature = null;
 		//Method mockMethod = null;
@@ -45,7 +46,7 @@ public class CalculatorLogginAspectTest {
 		calculatorLogginAspect.logBefore( mockJP );
         //verify(mockJP, times(1));
         //verify(mockJP);
-		Mockito.verify(mockJP,times(1));
+		Mockito.verify(calculatorLogginAspect,times(1)).logBefore( mockJP );
 	}
 	
 
